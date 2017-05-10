@@ -15,7 +15,7 @@ import com.google.firebase.database.FirebaseDatabase;
  * Created by Prabhu Sivanandam on 10-May-17.
  */
 
-class Signup extends Activity{
+public class Signup extends Activity{
     KarateKA ka;
     ProgressDialog dialog;
     EditText name,cpassword,age,phone,email,belt,address,emergency_number,ka_id,bloodgroup,father_name,mother_name,dojo,username,password;
@@ -98,7 +98,7 @@ class Signup extends Activity{
             //do registration here
             ka=new KarateKA(mName,mAge,mPhone,mEmail,mBelt,mAddress,mEmeregency_number,mKa_id,"0",mBloodgroup,mFathername,mMothername,mDojo,mUsername,mPassword);
             DatabaseReference reference= FirebaseDatabase.getInstance().getReference("Ka-s");
-            reference.child(ka.getKa_id()).setValue(ka);
+            reference.child(ka.getUsername()).setValue(ka);
             dialog.dismiss();
             Toast.makeText(Signup.this,"Registered Successfully",Toast.LENGTH_SHORT).show();
         }

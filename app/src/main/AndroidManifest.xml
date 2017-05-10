@@ -22,7 +22,8 @@
             android:name=".Dashboard"
             android:label="@string/title_activity_dashboard"
             android:theme="@style/Splashtheme"></activity>
-        <activity android:name=".Aboutus"></activity>
+        <activity android:name=".Aboutus"
+            android:theme="@style/Splashtheme"></activity>
         <activity android:name=".Signup"></activity>
     </application>
 

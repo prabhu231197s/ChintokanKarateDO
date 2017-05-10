@@ -68,6 +68,7 @@ public class Homescreen extends Activity{
                                 Toast.makeText(Homescreen.this, "Login Success", Toast.LENGTH_LONG).show();
                                 reference.setValue(ka);
                                 Intent i = new Intent(Homescreen.this, Dashboard.class);
+                                startActivity(i);
                             } else {
                                 dialog.dismiss();
                                 Toast.makeText(Homescreen.this, "Multiple logins not allowed", Toast.LENGTH_LONG).show();

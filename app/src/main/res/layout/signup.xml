@@ -57,6 +57,7 @@
             android:textStyle="bold|italic"
             android:textSize="15dp"
             android:hint="Enter your password"
+            android:inputType="textPassword"
             android:textColorHint="@android:color/white"/>
         <TextView
             android:layout_width="match_parent"
@@ -72,6 +73,7 @@
             android:textColor="@android:color/white"
             android:textStyle="bold|italic"
             android:textSize="15dp"
+            android:inputType="textPassword"
             android:hint="Re-enter Password"
             android:textColorHint="@android:color/white"/>
         <TextView
