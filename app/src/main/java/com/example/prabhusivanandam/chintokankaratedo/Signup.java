@@ -3,6 +3,7 @@ package com.example.prabhusivanandam.chintokankaratedo;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.EditText;
@@ -17,8 +18,9 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class Signup extends Activity{
     KarateKA ka;
+    ProgressDialog dialog2;
     ProgressDialog dialog;
-    EditText name,cpassword,age,phone,email,belt,address,emergency_number,ka_id,bloodgroup,father_name,mother_name,dojo,username,password;
+    EditText name,cpassword,age,phone,email,belt,address,emergency_number,ka_id,bloodgroup,father_name,mother_name,dojo,username,password,role;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,14 +40,19 @@ public class Signup extends Activity{
         username=(EditText)findViewById(R.id.usernamefield);
         password=(EditText)findViewById(R.id.passwordfield);
         cpassword=(EditText)findViewById(R.id.cpasswordfield);
+        role=(EditText)findViewById(R.id.rolefield);
         dialog=new ProgressDialog(this);
         dialog.setMessage("Please wait");
         dialog.setTitle("Registering..");
+        dialog2=new ProgressDialog(this);
+        dialog2.setTitle("Redirecting to signin");
+        dialog2.setMessage("Please Wait");
     }
     public void onRegisterClick(View v)
     {
         dialog.show();
         String mName=name.getText().toString();
+        String mRole=role.getText().toString();
         String mAge=age.getText().toString();
         String mPhone=phone.getText().toString();
         String mEmail=email.getText().toString();
@@ -93,14 +100,43 @@ public class Signup extends Activity{
             password.setError("Specify password");
         if(mCpassword.isEmpty())
             cpassword.setError("Re-enter Password");
+        if(mRole.isEmpty())
+            cpassword.setError("Enter your role at dojo");
         if(!mPassword.isEmpty()&&!mCpassword.isEmpty()&&mPassword.equals(mCpassword))
         {
             //do registration here
-            ka=new KarateKA(mName,mAge,mPhone,mEmail,mBelt,mAddress,mEmeregency_number,mKa_id,"0",mBloodgroup,mFathername,mMothername,mDojo,mUsername,mPassword);
+            ka=new KarateKA(mName,mAge,mPhone,mEmail,mBelt,mAddress,mEmeregency_number,mKa_id,"0",mBloodgroup,mFathername,mMothername,mDojo,mUsername,mPassword,mRole);
             DatabaseReference reference= FirebaseDatabase.getInstance().getReference("Ka-s");
             reference.child(ka.getUsername()).setValue(ka);
             dialog.dismiss();
             Toast.makeText(Signup.this,"Registered Successfully",Toast.LENGTH_SHORT).show();
+            name.setText("");
+            phone.setText("");
+            age.setText("");
+            email.setText("");
+            belt.setText("");
+            address.setText("");
+            emergency_number.setText("");
+            ka_id.setText("");
+            bloodgroup.setText("");
+            father_name.setText("");
+            mother_name.setText("");
+            dojo.setText("");
+            role.setText("");
+            password.setText("");
+            cpassword.setText("");
+            dialog2.show();
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    dialog2.dismiss();
+                    finish();
+                }
+            },2000);
+        }
+        else
+        {
+            Toast.makeText(Signup.this,"Enter the passwords correctly",Toast.LENGTH_LONG).show();
         }
     }
 }

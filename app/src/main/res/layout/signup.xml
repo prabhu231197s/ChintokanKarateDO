@@ -252,6 +252,22 @@
             android:textSize="15dp"
             android:hint="Enter KA-id"
             android:textColorHint="@android:color/white"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Role:"
+            android:textStyle="bold|italic"
+            android:textSize="18dp"
+            android:textColor="@android:color/white"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rolefield"
+            android:textColor="@android:color/white"
+            android:textStyle="bold|italic"
+            android:textSize="15dp"
+            android:hint="Enter your role"
+            android:textColorHint="@android:color/white"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
