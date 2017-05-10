@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "439794262908",
+    "firebase_url": "https://chintokankaratedo.firebaseio.com",
+    "project_id": "chintokankaratedo",
+    "storage_bucket": "chintokankaratedo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:439794262908:android:2ada88783292d17a",
+        "android_client_info": {
+          "package_name": "com.example.prabhusivanandam.chintokankaratedo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "439794262908-f99c1la47ta16ldk78s74avtdfenpt6a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.prabhusivanandam.chintokankaratedo",
+            "certificate_hash": "b23dd8d397792d007abe035d1c082673d15f5808"
+          }
+        },
+        {
+          "client_id": "439794262908-bkgj31edgkgdnuro71csr1145tg67pis.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsbBDZW6HC64F4HbQywBkx7J-Gz4u_wH4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "439794262908-bkgj31edgkgdnuro71csr1145tg67pis.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
