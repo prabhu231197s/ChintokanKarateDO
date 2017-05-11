@@ -2,7 +2,9 @@ package com.example.prabhusivanandam.chintokankaratedo;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.AlertDialog.*;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -53,6 +55,8 @@ public class Homescreen extends Activity{
             Toast.makeText(Homescreen.this,"Enter the credentials",Toast.LENGTH_LONG).show();
         }
         else {
+            et1.setText("");
+            et2.setText("");
             dialog.show();
             final DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Ka-s/" + username);
             reference.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -68,6 +72,7 @@ public class Homescreen extends Activity{
                                 Toast.makeText(Homescreen.this, "Login Success", Toast.LENGTH_LONG).show();
                                 reference.setValue(ka);
                                 Intent i = new Intent(Homescreen.this, Dashboard.class);
+                                i.putExtra("username",username);
                                 startActivity(i);
                             } else {
                                 dialog.dismiss();
@@ -97,5 +102,10 @@ public class Homescreen extends Activity{
     public void aboutUsClick(View v)
     {
         startActivity(new Intent(Homescreen.this,Aboutus.class));
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }

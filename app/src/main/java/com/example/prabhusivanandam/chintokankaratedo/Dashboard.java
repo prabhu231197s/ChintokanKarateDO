@@ -1,5 +1,8 @@
 package com.example.prabhusivanandam.chintokankaratedo;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,18 +15,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class Dashboard extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    String username;
     DatabaseReference reference= FirebaseDatabase.getInstance().getReference("Ka-s/");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+        Intent i=getIntent();
+        username=i.getStringExtra("username");
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -31,7 +41,7 @@ public class Dashboard extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Chintokan Karate DO INDIA", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
@@ -52,7 +62,37 @@ public class Dashboard extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            final AlertDialog.Builder alertDialog = new AlertDialog.Builder(Dashboard.this);
+            alertDialog.setTitle("Warning");
+            alertDialog.setMessage("LogOut and Exit?");
+            alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    final DatabaseReference ref=FirebaseDatabase.getInstance().getReference("Ka-s/"+username);
+                    ref.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            KarateKA ka = new KarateKA();
+                            ka=dataSnapshot.getValue(KarateKA.class);
+                            ka.setLoginFlag("0");
+                            ref.setValue(ka);
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+                            Toast.makeText(Dashboard.this,"Connectivity Error",Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    Dashboard.super.onBackPressed();
+                }
+            });
+            alertDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                }
+            });
+            alertDialog.show();
         }
     }
 
@@ -84,18 +124,22 @@ public class Dashboard extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        if (id == R.id.student_updates) {
+            // student updates
+        } else if (id == R.id.upcoming_events) {
+            //upcoming events
+        } else if (id == R.id.training_routines) {
+            //training routines
+        } else if (id == R.id.group_chat) {
+            //group forum
+        } else if (id == R.id.inter_events) {
+            //inter events
+        } else if (id == R.id.techniques) {
+            //techniques
+        }
+        else if(id==R.id.edit_Profile)
+        {
+            //edit profile
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
