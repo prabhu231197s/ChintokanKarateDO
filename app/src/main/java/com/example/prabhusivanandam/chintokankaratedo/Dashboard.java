@@ -64,7 +64,7 @@ public class Dashboard extends AppCompatActivity
         } else {
             final AlertDialog.Builder alertDialog = new AlertDialog.Builder(Dashboard.this);
             alertDialog.setTitle("Warning");
-            alertDialog.setMessage("LogOut and Exit?");
+            alertDialog.setMessage("Are you sure to LogOut?");
             alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
