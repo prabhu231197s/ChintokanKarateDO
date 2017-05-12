@@ -70,17 +70,32 @@ public class Homescreen extends Activity{
                         ka = dataSnapshot.getValue(KarateKA.class);
                         if (ka.getPassword().equals(password)) {
                             if (ka.getLoginFlag().equals("0")) {
-                                dialog.dismiss();
-                                ka.setLoginFlag("1");
-                                Toast.makeText(Homescreen.this, "Login Success", Toast.LENGTH_LONG).show();
-                                reference.setValue(ka);
-                                SharedPreferences preferences=getSharedPreferences("login",MODE_PRIVATE);
-                                SharedPreferences.Editor editor=preferences.edit();
-                                editor.putString("loggeduser",ka.getUsername());
-                                editor.commit();
-                                Intent i = new Intent(Homescreen.this, Dashboard.class);
-                                i.putExtra("username",username);
-                                startActivity(i);
+                                if(ka.getBlock_flag().equals("0")) {
+                                    dialog.dismiss();
+                                    ka.setLoginFlag("1");
+                                    Toast.makeText(Homescreen.this, "Login Success", Toast.LENGTH_LONG).show();
+                                    reference.setValue(ka);
+                                    SharedPreferences preferences = getSharedPreferences("login", MODE_PRIVATE);
+                                    SharedPreferences.Editor editor = preferences.edit();
+                                    editor.putString("loggeduser", ka.getUsername());
+                                    editor.commit();
+                                    Intent i = new Intent(Homescreen.this, Dashboard.class);
+                                    i.putExtra("username", username);
+                                    startActivity(i);
+                                }
+                                else
+                                {
+                                    AlertDialog.Builder alert=new AlertDialog.Builder(Homescreen.this);
+                                    alert.setTitle("Warning");
+                                    alert.setMessage("Contact admin");
+                                    alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            dialog.cancel();
+                                        }
+                                    });
+                                    dialog.show();
+                                }
                             } else {
                                 dialog.dismiss();
                                 Toast.makeText(Homescreen.this, "Multiple logins not allowed", Toast.LENGTH_LONG).show();

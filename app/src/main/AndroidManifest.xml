@@ -26,6 +26,14 @@
             android:theme="@style/Splashtheme"></activity>
         <activity android:name=".Signup"></activity>
         <activity android:name=".AddEvent"></activity>
+        <activity android:name=".AdminDashboard"
+            android:theme="@style/AppTheme">
+        </activity>
+        <activity android:name=".AdminSectionLogin"></activity>
+        <activity android:name=".Block_user"></activity>
+        <activity android:name=".Confidential_chat"></activity>
+        <activity android:name=".ViewComplaints"></activity>
+        <activity android:name=".AdminChat"></activity>
     </application>
 
 </manifest>

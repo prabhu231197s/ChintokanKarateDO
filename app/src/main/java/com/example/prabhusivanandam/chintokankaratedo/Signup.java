@@ -105,7 +105,7 @@ public class Signup extends Activity{
         if(!mPassword.isEmpty()&&!mCpassword.isEmpty()&&mPassword.equals(mCpassword))
         {
             //do registration here
-            ka=new KarateKA(mName,mAge,mPhone,mEmail,mBelt,mAddress,mEmeregency_number,mKa_id,"0",mBloodgroup,mFathername,mMothername,mDojo,mUsername,mPassword,mRole);
+            ka=new KarateKA(mName,mAge,mPhone,mEmail,mBelt,mAddress,mEmeregency_number,mKa_id,"0",mBloodgroup,mFathername,mMothername,mDojo,mUsername,mPassword,mRole,"0");
             DatabaseReference reference= FirebaseDatabase.getInstance().getReference("Ka-s");
             reference.child(ka.getUsername()).setValue(ka);
             dialog.dismiss();

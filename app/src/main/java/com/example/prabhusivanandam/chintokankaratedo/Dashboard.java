@@ -82,7 +82,7 @@ public class Dashboard extends AppCompatActivity
                             SharedPreferences.Editor editor=preferences.edit();
                             editor.putString("loggeduser","proceedtologin");
                             editor.commit();
-                            startActivity(new Intent(Dashboard.this,Homescreen.class));
+                            finishAffinity();
                         }
 
                         @Override

@@ -18,8 +18,25 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        String block_flag="0";
         SharedPreferences preferences=getSharedPreferences("login",MODE_PRIVATE);
         final String status=preferences.getString("loggeduser","proceedtologin");
+        DatabaseReference ref=FirebaseDatabase.getInstance().getReference("Ka-s"+status);
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.hasChildren())
+                {
+                    KarateKA ka=new KarateKA();
+
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
         final DatabaseReference reference= FirebaseDatabase.getInstance().getReference("event_id");
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -46,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else
                 {
+
                     finish();
                     startActivity(new Intent(MainActivity.this,Dashboard.class));
                 }

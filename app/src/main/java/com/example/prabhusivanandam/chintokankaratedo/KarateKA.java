@@ -5,7 +5,7 @@ package com.example.prabhusivanandam.chintokankaratedo;
  */
 
 public class KarateKA {
-    private String role,name,age,phone,email,loginFlag,belt,address,emergency_number,ka_id,bloodgroup,father_name,mother_name,dojo,username,password;
+    private String role,name,age,phone,email,loginFlag,belt,address,emergency_number,ka_id,bloodgroup,father_name,mother_name,dojo,username,password,block_flag;
 
 
     public String getKa_id() {
@@ -60,6 +60,14 @@ public class KarateKA {
 
     }
 
+    public String getBlock_flag() {
+        return block_flag;
+    }
+
+    public void setBlock_flag(String block_flag) {
+        this.block_flag = block_flag;
+    }
+
     public String getRole() {
         return role;
     }
@@ -68,11 +76,12 @@ public class KarateKA {
         this.role = role;
     }
 
-    public KarateKA(String name, String age, String phone, String email, String belt, String address, String emergency_number, String ka_id, String loginFlag, String bloodgroup, String father_name, String mother_name, String dojo, String username, String password, String role) {
+    public KarateKA(String name, String age, String phone, String email, String belt, String address, String emergency_number, String ka_id, String loginFlag, String bloodgroup, String father_name, String mother_name, String dojo, String username, String password, String role,String block_flag) {
         this.name = name;
         this.age = age;
         this.phone = phone;
         this.email = email;
+        this.block_flag=block_flag;
         this.father_name=father_name;
         this.mother_name=mother_name;
         this.username=username;
