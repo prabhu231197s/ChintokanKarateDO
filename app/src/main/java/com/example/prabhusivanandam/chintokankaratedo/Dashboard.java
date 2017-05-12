@@ -3,6 +3,7 @@ package com.example.prabhusivanandam.chintokankaratedo;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -33,7 +34,8 @@ public class Dashboard extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
         Intent i=getIntent();
-        username=i.getStringExtra("username");
+        SharedPreferences preferences=getSharedPreferences("login",MODE_PRIVATE);
+        username=preferences.getString("loogedinuser","prabhu231197s");
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -76,6 +78,11 @@ public class Dashboard extends AppCompatActivity
                             ka=dataSnapshot.getValue(KarateKA.class);
                             ka.setLoginFlag("0");
                             ref.setValue(ka);
+                            SharedPreferences preferences=getSharedPreferences("login",MODE_PRIVATE);
+                            SharedPreferences.Editor editor=preferences.edit();
+                            editor.putString("loggeduser","proceedtologin");
+                            editor.commit();
+                            startActivity(new Intent(Dashboard.this,Homescreen.class));
                         }
 
                         @Override
@@ -128,6 +135,9 @@ public class Dashboard extends AppCompatActivity
             // student updates
         } else if (id == R.id.upcoming_events) {
             //upcoming events
+            UpcomingEvents events=new UpcomingEvents();
+            getSupportFragmentManager().beginTransaction().add(R.id.fr,events).commit();
+
         } else if (id == R.id.training_routines) {
             //training routines
         } else if (id == R.id.group_chat) {
@@ -140,6 +150,10 @@ public class Dashboard extends AppCompatActivity
         else if(id==R.id.edit_Profile)
         {
             //edit profile
+        }
+        else if(id==R.id.downloads)
+        {
+            //download fragment here
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

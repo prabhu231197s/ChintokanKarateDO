@@ -6,6 +6,7 @@ import android.app.AlertDialog.*;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -25,6 +26,7 @@ import com.google.firebase.database.ValueEventListener;
  */
 public class Homescreen extends Activity{
 
+    TextView admin;
     ProgressDialog dialog;
     EditText et1,et2;
     Button btn1,btn2;
@@ -40,6 +42,7 @@ public class Homescreen extends Activity{
         btn1=(Button)findViewById(R.id.loginButton);
         btn2=(Button)findViewById(R.id.signupButton);
         tv1=(TextView)findViewById(R.id.AboutUs);
+        admin=(TextView)findViewById(R.id.admin);
         dialog=new ProgressDialog(this);
         dialog.setMessage("Please wait");
         dialog.setTitle("Logging in");
@@ -71,6 +74,10 @@ public class Homescreen extends Activity{
                                 ka.setLoginFlag("1");
                                 Toast.makeText(Homescreen.this, "Login Success", Toast.LENGTH_LONG).show();
                                 reference.setValue(ka);
+                                SharedPreferences preferences=getSharedPreferences("login",MODE_PRIVATE);
+                                SharedPreferences.Editor editor=preferences.edit();
+                                editor.putString("loggeduser",ka.getUsername());
+                                editor.commit();
                                 Intent i = new Intent(Homescreen.this, Dashboard.class);
                                 i.putExtra("username",username);
                                 startActivity(i);
@@ -102,6 +109,11 @@ public class Homescreen extends Activity{
     public void aboutUsClick(View v)
     {
         startActivity(new Intent(Homescreen.this,Aboutus.class));
+    }
+
+    public void onAdminClick(View v)
+    {
+        startActivity(new Intent(Homescreen.this,AdminSectionLogin.class));
     }
 
     @Override

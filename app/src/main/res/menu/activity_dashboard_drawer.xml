@@ -34,6 +34,12 @@
                 android:id="@+id/techniques"
                 android:icon="@drawable/ic_action_techniques"
                 android:title="Techniques" />
+            <item
+                android:id="@+id/downloads"
+                android:title="Downloads"
+                android:icon="@drawable/ic_action_downloads">
+
+            </item>
         </menu>
     </item>
 

@@ -25,6 +25,7 @@
         <activity android:name=".Aboutus"
             android:theme="@style/Splashtheme"></activity>
         <activity android:name=".Signup"></activity>
+        <activity android:name=".AddEvent"></activity>
     </application>
 
 </manifest>
