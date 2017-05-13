@@ -15,14 +15,41 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.json.JSONArray;
+
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        int count=0;
         setContentView(R.layout.activity_main);
         final SharedPreferences preferences=getSharedPreferences("login",MODE_PRIVATE);
         final String status=preferences.getString("loggeduser","proceedtologin");
         Log.d("e",""+status);
+
+
+        final DatabaseReference refe=FirebaseDatabase.getInstance().getReference("Upcoming_Events");
+        refe.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                int c= (int) dataSnapshot.getChildrenCount();
+                SharedPreferences eventcount=getSharedPreferences("count",MODE_PRIVATE);
+                SharedPreferences.Editor ed=eventcount.edit();
+                ed.putInt("eve_count",c);
+                ed.commit();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(MainActivity.this,"Check your connectivity",Toast.LENGTH_LONG).show();
+            }
+        });
+
+
+
+
         DatabaseReference ref=FirebaseDatabase.getInstance().getReference("Ka-s/"+status);
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

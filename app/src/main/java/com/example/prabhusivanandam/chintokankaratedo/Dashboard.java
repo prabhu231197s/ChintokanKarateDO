@@ -137,10 +137,12 @@ public class Dashboard extends AppCompatActivity
         } else if (id == R.id.upcoming_events) {
             //upcoming events
             UpcomingEvents events=new UpcomingEvents();
-            getSupportFragmentManager().beginTransaction().add(R.id.fr,events).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fr,events).commit();
 
         } else if (id == R.id.training_routines) {
             //training routines
+            TrainingRoutines routines=new TrainingRoutines();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fr,routines).commit();
         } else if (id == R.id.group_chat) {
             //group forum
         } else if (id == R.id.inter_events) {
