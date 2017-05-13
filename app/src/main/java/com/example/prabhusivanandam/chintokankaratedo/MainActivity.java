@@ -6,6 +6,8 @@ import android.content.SharedPreferences.Editor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -18,23 +20,29 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        String block_flag="0";
-        SharedPreferences preferences=getSharedPreferences("login",MODE_PRIVATE);
+        final SharedPreferences preferences=getSharedPreferences("login",MODE_PRIVATE);
         final String status=preferences.getString("loggeduser","proceedtologin");
-        DatabaseReference ref=FirebaseDatabase.getInstance().getReference("Ka-s"+status);
+        Log.d("e",""+status);
+        DatabaseReference ref=FirebaseDatabase.getInstance().getReference("Ka-s/"+status);
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if(dataSnapshot.hasChildren())
                 {
                     KarateKA ka=new KarateKA();
-
+                    ka=dataSnapshot.getValue(KarateKA.class);
+                    Log.d("name",ka.getName());
+                    SharedPreferences block=getSharedPreferences("blockstatus",MODE_PRIVATE);
+                    SharedPreferences.Editor editor=block.edit();
+                    editor.putString("blockstatus",ka.getBlock_flag());
+                    editor.commit();
                 }
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
+                    Log.d("error","network");
+                Toast.makeText(MainActivity.this,"Check your internet connection",Toast.LENGTH_LONG).show();
             }
         });
         final DatabaseReference reference= FirebaseDatabase.getInstance().getReference("event_id");
@@ -50,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
+                Toast.makeText(MainActivity.this,"Check your internet connection",Toast.LENGTH_LONG).show();
             }
         });
         new Handler().postDelayed(new Runnable() {
@@ -63,9 +71,20 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else
                 {
-
-                    finish();
-                    startActivity(new Intent(MainActivity.this,Dashboard.class));
+                    SharedPreferences pref=getSharedPreferences("blockstatus",MODE_PRIVATE);
+                    String block_flag=pref.getString("blockstatus","0");
+                    Log.d("block",block_flag);
+                    if(block_flag.equals("0"))
+                    {
+                        finish();
+                        startActivity(new Intent(MainActivity.this,Dashboard.class));
+                    }
+                    else
+                    {
+                        finish();
+                        Toast.makeText(MainActivity.this,"You are blocked.Contact admin",Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(MainActivity.this,Homescreen.class));
+                    }
                 }
             }
         },3000);

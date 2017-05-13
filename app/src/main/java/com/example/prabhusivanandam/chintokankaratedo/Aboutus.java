@@ -11,6 +11,8 @@ import android.support.v7.widget.Toolbar;
  */
 
 public class Aboutus extends AppCompatActivity {
+
+    //Nothing in functionality just display information about dojo refer aboutus.xml
     Toolbar toolbar;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

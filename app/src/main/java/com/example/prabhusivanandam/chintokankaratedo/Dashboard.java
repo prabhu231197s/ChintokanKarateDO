@@ -27,6 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 public class Dashboard extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    //To store the username who is logged in get it from the shared preferences
     String username;
     DatabaseReference reference= FirebaseDatabase.getInstance().getReference("Ka-s/");
     @Override
@@ -35,7 +36,7 @@ public class Dashboard extends AppCompatActivity
         setContentView(R.layout.activity_dashboard);
         Intent i=getIntent();
         SharedPreferences preferences=getSharedPreferences("login",MODE_PRIVATE);
-        username=preferences.getString("loogedinuser","prabhu231197s");
+        username=preferences.getString("loggeduser","prabhu231197s");
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -154,6 +155,10 @@ public class Dashboard extends AppCompatActivity
         else if(id==R.id.downloads)
         {
             //download fragment here
+        }
+        else if(id==R.id.regcomplaint)
+        {
+            //complaints register here
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

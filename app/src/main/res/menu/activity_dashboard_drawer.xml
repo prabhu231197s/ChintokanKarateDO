@@ -38,8 +38,10 @@
                 android:id="@+id/downloads"
                 android:title="Downloads"
                 android:icon="@drawable/ic_action_downloads">
-
             </item>
+            <item android:title="Register Complaint"
+                android:id="@+id/regcomplaint"
+                android:icon="@drawable/ic_action_register_complaints"/>
         </menu>
     </item>
 

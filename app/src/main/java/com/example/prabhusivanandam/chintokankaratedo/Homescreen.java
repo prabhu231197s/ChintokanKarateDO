@@ -26,6 +26,8 @@ import com.google.firebase.database.ValueEventListener;
  */
 public class Homescreen extends Activity{
 
+    //Authentication functionality i.e login with the username and password
+
     TextView admin;
     ProgressDialog dialog;
     EditText et1,et2;
@@ -85,16 +87,17 @@ public class Homescreen extends Activity{
                                 }
                                 else
                                 {
-                                    AlertDialog.Builder alert=new AlertDialog.Builder(Homescreen.this);
+                                    dialog.dismiss();
+                                    final AlertDialog.Builder alert=new AlertDialog.Builder(Homescreen.this);
                                     alert.setTitle("Warning");
-                                    alert.setMessage("Contact admin");
-                                    alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    alert.setMessage("You are blocked.Contact admin");
+                                    alert.setNegativeButton("OK", new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
                                             dialog.cancel();
                                         }
                                     });
-                                    dialog.show();
+                                    alert.show();
                                 }
                             } else {
                                 dialog.dismiss();

@@ -34,6 +34,7 @@
         <activity android:name=".Confidential_chat"></activity>
         <activity android:name=".ViewComplaints"></activity>
         <activity android:name=".AdminChat"></activity>
+        <activity android:name=".TrainingRoutines"></activity>
     </application>
 
 </manifest>
