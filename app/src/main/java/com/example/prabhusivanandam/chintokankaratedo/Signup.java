@@ -50,7 +50,6 @@ public class Signup extends Activity{
     }
     public void onRegisterClick(View v)
     {
-        dialog.show();
         String mName=name.getText().toString();
         String mRole=role.getText().toString();
         String mAge=age.getText().toString();
@@ -73,7 +72,9 @@ public class Signup extends Activity{
             name.setError("Please enter name");
         }
         if(mAge.isEmpty())
+        {
             age.setError("Please enter age");
+        }
         if(mPhone.isEmpty())
             phone.setError("Please enter phone number");
         if(mEmail.isEmpty())
@@ -105,6 +106,7 @@ public class Signup extends Activity{
         if(!mPassword.isEmpty()&&!mCpassword.isEmpty()&&mPassword.equals(mCpassword))
         {
             //do registration here
+            dialog.show();
             ka=new KarateKA(mName,mAge,mPhone,mEmail,mBelt,mAddress,mEmeregency_number,mKa_id,"0",mBloodgroup,mFathername,mMothername,mDojo,mUsername,mPassword,mRole,"0");
             DatabaseReference reference= FirebaseDatabase.getInstance().getReference("Ka-s");
             reference.child(ka.getUsername()).setValue(ka);

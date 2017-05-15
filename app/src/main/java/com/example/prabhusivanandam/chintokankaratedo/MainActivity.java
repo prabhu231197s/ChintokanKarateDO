@@ -30,6 +30,23 @@ public class MainActivity extends AppCompatActivity {
         Log.d("e",""+status);
 
 
+        DatabaseReference r=FirebaseDatabase.getInstance().getReference("user_message_id");
+        r.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String id=(String)dataSnapshot.getValue();
+                SharedPreferences user_messages=getSharedPreferences("user_m_id",MODE_PRIVATE);
+                SharedPreferences.Editor editor=user_messages.edit();
+                editor.putString("mes_id",id);
+                editor.commit();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
         DatabaseReference refer=FirebaseDatabase.getInstance().getReference("message_id");
         refer.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
