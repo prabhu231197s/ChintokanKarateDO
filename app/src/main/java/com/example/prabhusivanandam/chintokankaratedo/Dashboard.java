@@ -49,6 +49,8 @@ public class Dashboard extends AppCompatActivity
             }
         });
 
+        fab.setVisibility(View.GONE);
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -145,9 +147,10 @@ public class Dashboard extends AppCompatActivity
             getSupportFragmentManager().beginTransaction().replace(R.id.fr,routines).commit();
         } else if (id == R.id.group_chat) {
             //group forum
-        } else if (id == R.id.inter_events) {
-            //inter events
-        } else if (id == R.id.techniques) {
+            GroupChat chat=new GroupChat();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fr,chat).commit();
+        }
+          else if (id == R.id.techniques) {
             //techniques
         }
         else if(id==R.id.edit_Profile)
@@ -161,6 +164,8 @@ public class Dashboard extends AppCompatActivity
         else if(id==R.id.regcomplaint)
         {
             //complaints register here
+            RegisterComplaint complaint=new RegisterComplaint();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fr,complaint).commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

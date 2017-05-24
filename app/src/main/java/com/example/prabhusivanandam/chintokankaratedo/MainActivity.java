@@ -29,6 +29,24 @@ public class MainActivity extends AppCompatActivity {
         final String status=preferences.getString("loggeduser","proceedtologin");
         Log.d("e",""+status);
 
+        DatabaseReference complaintRef=FirebaseDatabase.getInstance().getReference("complaint_id");
+        complaintRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String id=(String)dataSnapshot.getValue();
+                SharedPreferences sharedPreferences=getSharedPreferences("complaint_count",MODE_PRIVATE);
+                SharedPreferences.Editor editor=sharedPreferences.edit();
+                editor.putString("complaint_id",id);
+                editor.commit();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(MainActivity.this,"Check your connection and restart app",Toast.LENGTH_LONG).show();
+            }
+        });
+
+
 
         DatabaseReference r=FirebaseDatabase.getInstance().getReference("user_message_id");
         r.addListenerForSingleValueEvent(new ValueEventListener() {

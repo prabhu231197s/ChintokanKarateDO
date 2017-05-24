@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="114dp"
+        android:text="Register Complaints"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="30dp"
+        android:textStyle="bold|italic"
+        android:fontFamily="sans-serif"/>
+
+    <com.wrapp.floatlabelededittext.FloatLabeledEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="58dp"
+        android:layout_marginStart="13dp"
+        android:layout_below="@+id/textView3"
+        android:layout_alignStart="@+id/textView3"
+        android:id="@+id/floatLabeledEditText5">
+
+        <EditText
+            android:id="@+id/complaintSubject"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="62dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textColor="@android:color/background_dark"
+            android:hint="Enter Subject"
+            android:layout_below="@+id/textView3"
+            android:layout_centerHorizontal="true" />
+
+    </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
+    <com.wrapp.floatlabelededittext.FloatLabeledEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/floatLabeledEditText5"
+        android:layout_alignStart="@+id/floatLabeledEditText5"
+        android:layout_marginTop="38dp"
+        android:id="@+id/floatLabeledEditText6">
+
+        <EditText
+            android:id="@+id/complaintBody"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/floatLabeledEditText5"
+            android:layout_below="@+id/floatLabeledEditText5"
+            android:layout_marginTop="46dp"
+            android:ems="10"
+            android:hint="Enter your complaints here"
+            android:inputType="textMultiLine" />
+
+    </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
+    <TextView
+        android:id="@+id/registerComplaintButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_below="@+id/floatLabeledEditText6"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="73dp"
+        android:text="Register"
+        android:textSize="25dp"
+        android:textColor="@android:color/background_dark"
+        android:textStyle="bold|italic"
+        android:onClick="onRegisterComplaintClick"/>
+</RelativeLayout>

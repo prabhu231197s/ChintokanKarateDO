@@ -27,10 +27,6 @@
     <item android:title="Others">
         <menu>
             <item
-                android:id="@+id/inter_events"
-                android:icon="@drawable/ic_action_inter_events"
-                android:title="Inter Events" />
-            <item
                 android:id="@+id/techniques"
                 android:icon="@drawable/ic_action_techniques"
                 android:title="Techniques" />

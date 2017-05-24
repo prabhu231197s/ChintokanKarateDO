@@ -31,10 +31,11 @@
         </activity>
         <activity android:name=".AdminSectionLogin"></activity>
         <activity android:name=".Block_user"></activity>
-        <activity android:name=".Confidential_chat"></activity>
         <activity android:name=".ViewComplaints"></activity>
         <activity android:name=".AdminChat"></activity>
         <activity android:name=".TrainingRoutines"></activity>
+        <activity android:name=".StudentDetails"></activity>
+        <activity android:name=".ViewStudentDetails"></activity>
     </application>
 
 </manifest>
