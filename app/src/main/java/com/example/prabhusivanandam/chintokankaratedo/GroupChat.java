@@ -3,6 +3,7 @@ package com.example.prabhusivanandam.chintokankaratedo;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -29,10 +31,12 @@ import java.util.ArrayList;
 public class GroupChat extends Fragment{
 
     EditText mBody;
+    Handler mHandler;
     ImageView sendBtn;
     String username;
     ArrayList<UserMessages> userMessages=new ArrayList<>();
     RecyclerView user_rv;
+    GroupchatAdapter adapter;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -46,9 +50,10 @@ public class GroupChat extends Fragment{
         SharedPreferences preferences=getActivity().getSharedPreferences("login", Context.MODE_PRIVATE);
         username=preferences.getString("loggeduser","anonymous");
         LinearLayoutManager manager=new LinearLayoutManager(getContext());
-        final GroupchatAdapter adapter=new GroupchatAdapter(userMessages);
+        adapter=new GroupchatAdapter(userMessages);
         manager.setReverseLayout(true);
         user_rv.setLayoutManager(manager);
+        mHandler=new Handler();
         user_rv.setAdapter(adapter);
         user_rv.hasFixedSize();
         DatabaseReference reference=FirebaseDatabase.getInstance().getReference();
@@ -97,7 +102,53 @@ public class GroupChat extends Fragment{
                 }
             }
         });
+        mRunnable.run();
         return v;
     }
+
+    private Runnable mRunnable=new Runnable() {
+        @Override
+        public void run() {
+            //Toast.makeText(getContext(),"Refreshing",Toast.LENGTH_LONG).show();
+            //Refresh the shared preference here
+            SharedPreferences preferences=getActivity().getSharedPreferences("user_m_id",Context.MODE_PRIVATE);
+            final SharedPreferences.Editor editor=preferences.edit();
+            DatabaseReference reference=FirebaseDatabase.getInstance().getReference("user_message_id");
+            reference.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    editor.putString("mes_id",String.valueOf(dataSnapshot.getValue()));
+                    editor.commit();
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+            int count=Integer.parseInt(preferences.getString("mes_id","0"));
+           // userMessages.clear();
+           /* DatabaseReference ref=FirebaseDatabase.getInstance().getReference();
+            for (int i=1;i<count;i++)
+            {
+                ref=FirebaseDatabase.getInstance().getReference("User_Messages/"+i);
+                ref.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        UserMessages messages=new UserMessages();
+                        messages=dataSnapshot.getValue(UserMessages.class);
+                        userMessages.add(messages);
+                        adapter.notifyDataSetChanged();
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+            }*/
+            GroupChat.this.mHandler.postDelayed(mRunnable,3000);
+        }
+    };
 
 }

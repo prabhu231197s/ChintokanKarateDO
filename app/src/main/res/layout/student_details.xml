@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<com.wrapp.floatlabelededittext.FloatLabeledEditText
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="215dp"
+    android:id="@+id/floatLabeledEditText4"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentEnd="true"
+    android:layout_marginEnd="74dp">
+
+    <EditText
+        android:id="@+id/student_Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="211dp"
+        android:ems="10"
+        android:hint="Enter student name"
+        android:inputType="textPersonName" />
+
+</com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
+    <Button
+        android:id="@+id/btnFetchDetails"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/floatLabeledEditText4"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:textColor="@android:color/background_dark"
+        android:textStyle="bold|italic"
+        android:onClick="onFetchClick"
+        android:text="Fetch Details" />
+
+
+</RelativeLayout>

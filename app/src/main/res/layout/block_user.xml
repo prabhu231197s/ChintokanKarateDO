@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.wrapp.floatlabelededittext.FloatLabeledEditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/floatLabeledEditText3"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
+        <EditText
+            android:id="@+id/blockusername"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="229dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="Enter the username to block"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+    </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:text="Block User"
+        android:textSize="60dp"
+        android:textColor="@android:color/background_dark"
+        android:textStyle="bold|italic"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/floatLabeledEditText3"
+        android:layout_alignParentStart="true">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Unblock User"
+                android:id="@+id/blockButton"
+                android:textSize="25dp"
+                android:onClick="onUnblockClick"
+                android:textStyle="bold|italic"
+                android:background="@android:color/transparent"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="96dp" />
+        </RelativeLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/unblockButton"
+            android:text="Block user"
+            android:textSize="25dp"
+            android:onClick="onBlockClick"
+            android:textStyle="bold|italic"
+            android:background="@android:color/transparent"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="96dp" />
+    </RelativeLayout>
+</RelativeLayout>

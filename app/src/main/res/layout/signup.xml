@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:background="@drawable/background_final"
     android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,267 +13,267 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Name:"
-        android:textColor="@android:color/white"
+        android:textColor="@android:color/background_dark"
         android:textStyle="bold|italic"
         android:textSize="18dp"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/namefield"
-        android:textColor="@android:color/white"
-        android:textStyle="bold|italic"
+        android:textColor="@android:color/background_dark"
+        android:textStyle="italic"
         android:textSize="15dp"
         android:hint="Enter your full name"
-        android:textColorHint="@android:color/white"/>
+        android:textColorHint="@android:color/background_dark"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Username:"
-        android:textColor="@android:color/white"
+        android:textColor="@android:color/background_dark"
         android:textStyle="bold|italic"
         android:textSize="18dp"/>
         <EditText
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
          android:id="@+id/usernamefield"
-         android:textColor="@android:color/white"
-         android:textStyle="bold|italic"
+         android:textColor="@android:color/background_dark"
+         android:textStyle="italic"
          android:textSize="15dp"
          android:hint="Enter your username"
-         android:textColorHint="@android:color/white" />
+         android:textColorHint="@android:color/background_dark" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Password:"
         android:textStyle="bold|italic"
         android:textSize="18dp"
-        android:textColor="@android:color/white"/>
+        android:textColor="@android:color/background_dark"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/passwordfield"
-            android:textColor="@android:color/white"
-            android:textStyle="bold|italic"
+            android:textColor="@android:color/background_dark"
+            android:textStyle="italic"
             android:textSize="15dp"
             android:hint="Enter your password"
             android:inputType="textPassword"
-            android:textColorHint="@android:color/white"/>
+            android:textColorHint="@android:color/background_dark"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Confirm password:"
             android:textStyle="bold|italic"
             android:textSize="18dp"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/background_dark"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/cpasswordfield"
-            android:textColor="@android:color/white"
-            android:textStyle="bold|italic"
+            android:textColor="@android:color/background_dark"
+            android:textStyle="italic"
             android:textSize="15dp"
             android:inputType="textPassword"
             android:hint="Re-enter Password"
-            android:textColorHint="@android:color/white"/>
+            android:textColorHint="@android:color/background_dark"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Email:"
             android:textStyle="bold|italic"
             android:textSize="18dp"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/background_dark"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/emailfield"
-            android:textColor="@android:color/white"
-            android:textStyle="bold|italic"
+            android:textColor="@android:color/background_dark"
+            android:textStyle="italic"
             android:textSize="15dp"
             android:hint="Enter your email"
-            android:textColorHint="@android:color/white"/>
+            android:textColorHint="@android:color/background_dark"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Age:"
             android:textStyle="bold|italic"
             android:textSize="18dp"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/background_dark"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/agefield"
-            android:textColor="@android:color/white"
-            android:textStyle="bold|italic"
+            android:textColor="@android:color/background_dark"
+            android:textStyle="italic"
             android:textSize="15dp"
             android:hint="Enter your age"
-            android:textColorHint="@android:color/white"/>
+            android:textColorHint="@android:color/background_dark"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Phone Number:"
             android:textStyle="bold|italic"
             android:textSize="18dp"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/background_dark"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/phonefield"
-            android:textColor="@android:color/white"
-            android:textStyle="bold|italic"
+            android:textColor="@android:color/background_dark"
+            android:textStyle="italic"
             android:textSize="15dp"
             android:hint="Enter your phone number"
-            android:textColorHint="@android:color/white"/>
+            android:textColorHint="@android:color/background_dark"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Address:"
             android:textStyle="bold|italic"
             android:textSize="18dp"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/background_dark"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/addressfield"
-            android:textColor="@android:color/white"
-            android:textStyle="bold|italic"
+            android:textColor="@android:color/background_dark"
+            android:textStyle="italic"
             android:textSize="15dp"
             android:hint="Enter your address"
-            android:textColorHint="@android:color/white"/>
+            android:textColorHint="@android:color/background_dark"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Father's name:"
             android:textStyle="bold|italic"
             android:textSize="18dp"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/background_dark"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/fatherfield"
-            android:textColor="@android:color/white"
-            android:textStyle="bold|italic"
+            android:textColor="@android:color/background_dark"
+            android:textStyle="italic"
             android:textSize="15dp"
             android:hint="Enter your father's name"
-            android:textColorHint="@android:color/white"/>
+            android:textColorHint="@android:color/background_dark"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Mother's name"
             android:textStyle="bold|italic"
             android:textSize="18dp"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/background_dark"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/motherfield"
-            android:textColor="@android:color/white"
-            android:textStyle="bold|italic"
+            android:textColor="@android:color/background_dark"
+            android:textStyle="italic"
             android:textSize="15dp"
             android:hint="Enter your mother's name"
-            android:textColorHint="@android:color/white"/>
+            android:textColorHint="@android:color/background_dark"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Emergency Contact number"
             android:textStyle="bold|italic"
             android:textSize="18dp"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/background_dark"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/emergencyfield"
-            android:textColor="@android:color/white"
-            android:textStyle="bold|italic"
+            android:textColor="@android:color/background_dark"
+            android:textStyle="italic"
             android:textSize="15dp"
             android:hint="Enter emergency contact number"
-            android:textColorHint="@android:color/white"/>
+            android:textColorHint="@android:color/background_dark"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Blood Group:"
             android:textStyle="bold|italic"
             android:textSize="18dp"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/background_dark"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/bloodgroupfield"
-            android:textColor="@android:color/white"
-            android:textStyle="bold|italic"
+            android:textColor="@android:color/background_dark"
+            android:textStyle="italic"
             android:textSize="15dp"
             android:hint="Enter blood group"
-            android:textColorHint="@android:color/white"/>
+            android:textColorHint="@android:color/background_dark"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Dojo:"
             android:textStyle="bold|italic"
             android:textSize="18dp"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/background_dark"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/dojofield"
-            android:textColor="@android:color/white"
-            android:textStyle="bold|italic"
+            android:textColor="@android:color/background_dark"
+            android:textStyle="italic"
             android:textSize="15dp"
             android:hint="Enter your dojo"
-            android:textColorHint="@android:color/white"/>
+            android:textColorHint="@android:color/background_dark"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Belt:"
             android:textStyle="bold|italic"
             android:textSize="18dp"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/background_dark"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/beltfield"
-            android:textColor="@android:color/white"
-            android:textStyle="bold|italic"
+            android:textColor="@android:color/background_dark"
+            android:textStyle="italic"
             android:textSize="15dp"
             android:hint="Enter belt"
-            android:textColorHint="@android:color/white"/>
+            android:textColorHint="@android:color/background_dark"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="KA-id:"
             android:textStyle="bold|italic"
             android:textSize="18dp"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/background_dark"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/kaidfield"
-            android:textColor="@android:color/white"
-            android:textStyle="bold|italic"
+            android:textColor="@android:color/background_dark"
+            android:textStyle="italic"
             android:textSize="15dp"
             android:hint="Enter KA-id"
-            android:textColorHint="@android:color/white"/>
+            android:textColorHint="@android:color/background_dark"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Role:"
             android:textStyle="bold|italic"
             android:textSize="18dp"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/background_dark"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/rolefield"
-            android:textColor="@android:color/white"
-            android:textStyle="bold|italic"
+            android:textColor="@android:color/background_dark"
+            android:textStyle="italic"
             android:textSize="15dp"
             android:hint="Enter your role"
-            android:textColorHint="@android:color/white"/>
+            android:textColorHint="@android:color/background_dark"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/registerbutton"
             android:background="@android:color/transparent"
             android:text="Register"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/background_dark"
             android:textStyle="bold|italic"
             android:textSize="30dp"
             android:onClick="onRegisterClick"/>

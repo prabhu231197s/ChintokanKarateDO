@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/frame1"
+    android:layout_height="match_parent">
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical" android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="34dp"
+                android:text="KA-ID  :"
+                android:textColor="@android:color/background_dark"
+                android:textSize="18sp"
+                android:layout_marginTop="20dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="Name  :"
+                android:textColor="@android:color/background_dark"
+                android:textSize="18sp"
+                android:layout_below="@+id/textView6"
+                android:layout_alignStart="@+id/textView6" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Age  :"
+                android:textColor="@android:color/background_dark"
+                android:textSize="18sp"
+                android:layout_below="@+id/textView9"
+                android:layout_alignStart="@+id/textView9"
+                android:layout_marginTop="18dp" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="Phone  :"
+                android:textSize="18sp"
+                android:textColor="@android:color/background_dark"
+                android:layout_below="@+id/textView10"
+                android:layout_alignStart="@+id/textView10" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="Email  :"
+                android:textSize="18sp"
+                android:textColor="@android:color/background_dark"
+                android:layout_below="@+id/textView11"
+                android:layout_alignStart="@+id/textView11" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/textView12"
+                android:layout_below="@+id/textView12"
+                android:layout_marginTop="18dp"
+                android:text="Address  :"
+                android:textColor="@android:color/background_dark"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/textView13"
+                android:layout_below="@+id/textView13"
+                android:layout_marginTop="18dp"
+                android:text="Emergency no  :"
+                android:textSize="18sp"
+                android:textColor="@android:color/background_dark"/>
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/textView14"
+                android:layout_below="@+id/textView14"
+                android:layout_marginTop="18dp"
+                android:text="Blood group  :"
+                android:textSize="18sp"
+                android:textColor="@android:color/background_dark"/>
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/textView15"
+                android:layout_below="@+id/textView15"
+                android:layout_marginTop="18dp"
+                android:text="Dojo  :"
+                android:textColor="@android:color/background_dark"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/textView16"
+                android:layout_below="@+id/textView16"
+                android:layout_marginTop="18dp"
+                android:text="Belt  :"
+                android:textColor="@android:color/background_dark"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/tvSaveChanges"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="Edit Profile"
+                android:textSize="30dp"
+                android:gravity="center"
+                android:textColor="@android:color/background_dark"
+                android:textStyle="bold|italic"
+                android:layout_below="@+id/textView17"
+                android:layout_toEndOf="@+id/textView14"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:id="@+id/tvKaId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/textView6"
+                android:layout_alignStart="@+id/tvKaAddress" />
+
+            <TextView
+                android:id="@+id/tvKaName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/textView9"
+                android:layout_alignStart="@+id/tvKaId" />
+
+            <TextView
+                android:id="@+id/tvKaAge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/textView10"
+                android:layout_alignStart="@+id/tvKaName" />
+
+            <TextView
+                android:id="@+id/tvKaPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/textView11"
+                android:layout_alignStart="@+id/tvKaAge" />
+
+            <TextView
+                android:id="@+id/tvKaEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/textView12"
+                android:layout_alignStart="@+id/tvKaPhone" />
+
+            <TextView
+                android:id="@+id/tvKaAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/textView13"
+                android:layout_marginStart="13dp"
+                android:layout_toEndOf="@+id/textView13" />
+
+            <TextView
+                android:id="@+id/tvKaEmergecyNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:layout_alignStart="@id/tvKaPhone"
+                android:layout_marginLeft="46dp"
+                android:layout_alignBottom="@+id/textView14"
+                android:layout_toEndOf="@+id/tvKaEmail" />
+
+            <TextView
+                android:id="@+id/tvKaBloodGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/textView15"
+                android:layout_toEndOf="@+id/textView14" />
+
+            <TextView
+                android:id="@+id/tvKaDojo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/textView17"
+                android:layout_alignStart="@+id/tvKaAddress" />
+
+            <TextView
+                android:id="@+id/tvKaBelt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/tvSaveChanges"
+                android:layout_toEndOf="@+id/textView14" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</FrameLayout>

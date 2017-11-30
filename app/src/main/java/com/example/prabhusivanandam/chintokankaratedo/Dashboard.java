@@ -156,6 +156,8 @@ public class Dashboard extends AppCompatActivity
         else if(id==R.id.edit_Profile)
         {
             //edit profile
+            ViewMyProfile viewMyProfile=new ViewMyProfile();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fr,viewMyProfile).commit();
         }
         else if(id==R.id.downloads)
         {
